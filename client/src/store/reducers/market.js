@@ -4,8 +4,8 @@ const initialState = {
 export default function MarketReducer(state = initialState, action) {
 	switch (action.type) {
 		case "SET_MARKETS":
-			state.from = action.payload;
-			break;
+			state.markets = action.payload;
+			return state;
 		default:
 			return state;
 	}

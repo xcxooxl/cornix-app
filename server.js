@@ -8,7 +8,7 @@ const cors = require("cors");
 if (process.env.NODE_ENV !== "production") {
 	const corsOptions = {
 		origin: (origin, callback) => {
-			if (origin.includes("localhost")) callback(null, true);
+			if (!origin || origin.includes("localhost")) callback(null, true);
 		},
 	};
 	app.use(cors(corsOptions));

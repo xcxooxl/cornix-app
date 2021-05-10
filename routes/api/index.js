@@ -1,7 +1,7 @@
 const express = require("express");
-const binance = require("./markets");
+const markets = require("./markets");
 
 const router = express.Router();
-router.use("/binance", binance);
+router.use("/markets", markets);
 
 module.exports = router;
