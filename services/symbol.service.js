@@ -6,10 +6,6 @@ const appConfig = require("@config/index");
 const Symbol = require("../DTO/symbol");
 const TOKENS_CACHE_KEY = "tokens";
 
-const INITIAL_DATE = new Date(2021, 1, 1).getTime();
-const HOUR_INTERVAL = "1h";
-const MAX_CANDLES_PER_REQUEST = 1000;
-
 const binance = new ccxt.binance({
 	apiKey: appConfig.env.BINANCE_API_KEY,
 	secret: appConfig.env.BINANCE_API_SECRET,
@@ -21,6 +17,9 @@ const getSymbolPage = pageNum => {
 	return axios.get(`${symbolDataApiUrl}${pageNum}.json`);
 };
 
+const INITIAL_DATE = new Date(2021, 1, 1).getTime();
+const HOUR_INTERVAL = "1h";
+const MAX_CANDLES_PER_REQUEST = 1000;
 const getSymbolOHLC = async (
 	symbol,
 	interval = HOUR_INTERVAL,
