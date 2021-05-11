@@ -16,7 +16,7 @@ dist
 .DS_Store
 .env.local
 .env.development.local
-.env.getMarkets.local
+.env.getSymbols.local
 .env.production.local
 
 npm-debug.log*

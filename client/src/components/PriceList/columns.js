@@ -3,8 +3,8 @@ export const columns = [
 	{ title: "Symbol", field: "symbol" },
 	{ title: "Price", field: "price", type: "numeric" },
 	{
-		title: "Market Cap",
-		field: "marketCap",
+		title: "Symbol Cap",
+		field: "marketcap",
 		type: "numeric",
 	},
 	{

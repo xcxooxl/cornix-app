@@ -1,0 +1,7 @@
+.filters {
+    display:flex;
+}
+
+.filter {
+    padding: 0px 10px;
+}

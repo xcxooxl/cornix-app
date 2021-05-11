@@ -1,4 +1,4 @@
-const { getExampleById } = require("./schemes/example");
+const { getSymbolChart } = require("./schemes/getSymbolChart");
 
 const validateFactory = (schema, property) => {
 	return (req, res, next) => {
@@ -15,7 +15,7 @@ const validateFactory = (schema, property) => {
 };
 
 const validations = {
-	getExampleById,
+	getSymbolChart,
 };
 
 module.exports = {

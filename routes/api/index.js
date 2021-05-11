@@ -1,7 +1,7 @@
 const express = require("express");
-const markets = require("./markets");
+const symbols = require("./symbols");
 
 const router = express.Router();
-router.use("/markets", markets);
+router.use("/symbols", symbols);
 
 module.exports = router;

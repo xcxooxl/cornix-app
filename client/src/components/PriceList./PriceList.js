@@ -5,15 +5,15 @@ import { useHistory } from "react-router-dom";
 import actions from "../../store/actions";
 
 export function PriceList() {
-	const markets = useSelector(state => state.market.markets);
+	const symbols = useSelector(state => state.symbol.symbols);
 	const dispatch = useDispatch();
 	const router = useHistory();
 
-	const isLoading = markets.length === 0;
-	if (isLoading) dispatch(actions.GET_MARKETS());
+	const isLoading = symbols.length === 0;
+	if (isLoading) dispatch(actions.GET_SYMBOLS());
 
 	const goToCryptoChart = symbol => {
-		router.push(`/market/${symbol}`);
+		router.push(`/symbol/${symbol}`);
 	};
 
 	const getTable = () => {
@@ -24,7 +24,7 @@ export function PriceList() {
 				<MaterialTable
 					title="Cornix Coins"
 					columns={columns}
-					data={markets}
+					data={symbols}
 					actions={[
 						{
 							icon: "show_chart",

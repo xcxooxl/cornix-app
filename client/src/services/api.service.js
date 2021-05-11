@@ -3,11 +3,21 @@ const client = axios.create({
 	baseURL: process.env.NODE_ENV === "production" ? "/" : "http://localhost:5000/api/",
 });
 
-const getAllMarkets = async () => {
-	const response = await client.get("/markets");
+const getAllSymbols = async () => {
+	const response = await client.get("/symbols");
+	return response?.data;
+};
+const getSymbolOHLC = async (symbol, since, interval) => {
+	const response = await client.get(`/symbols/${symbol}/OHLC`, {
+		params: {
+			since,
+			interval,
+		},
+	});
 	return response?.data;
 };
 
 module.exports = {
-	getAllMarkets,
+	getAllSymbols,
+	getSymbolOHLC,
 };

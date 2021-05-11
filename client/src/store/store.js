@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
-import market from "./reducers/market";
+import symbol from "./reducers/symbol";
 
-const rootReducer = combineReducers({ market });
+const rootReducer = combineReducers({ symbol });
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;

@@ -1,16 +1,28 @@
 import apiService from "../services/api.service";
 
 const actions = {
-	GET_MARKETS: sort => {
+	GET_SYMBOLS: sort => {
 		return async function (dispatch) {
-			const markets = await apiService.getAllMarkets(sort);
-			dispatch(actions.SET_MARKETS(markets));
+			const symbols = await apiService.getAllSymbols(sort);
+			dispatch(actions.SET_SYMBOLS(symbols));
 		};
 	},
-	SET_MARKETS(markets) {
+	GET_SYMBOL_OHLC: (symbol, { since, interval } = {}) => {
+		return async function (dispatch) {
+			const OHLC = await apiService.getSymbolOHLC(symbol, since, interval);
+			dispatch(actions.SET_SYMBOL_OHLC(symbol, OHLC));
+		};
+	},
+	SET_SYMBOLS(symbols) {
 		return {
-			type: "SET_MARKETS",
-			payload: markets,
+			type: "SET_SYMBOLS",
+			payload: symbols,
+		};
+	},
+	SET_SYMBOL_OHLC(symbol, OHLC) {
+		return {
+			type: "SET_SYMBOL_OHLC",
+			payload: { name: symbol, OHLC },
 		};
 	},
 };
