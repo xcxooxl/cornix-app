@@ -22,12 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(handleErrors);
 
-app.use(express.static("client/build/static"));
-
-// 	app.get("*", (req, res) => {
-// 		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-// 	});rr
-// }
+app.use(express.static("client/build"));
 
 // Initialization
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

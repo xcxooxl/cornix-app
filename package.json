@@ -7,9 +7,9 @@
 		"node": "15.x"
 	},
 	"scripts": {
-		"start": "node index.js",
+		"start": "npm run build && node index.js",
 		"start-dev": "babel-node index.js",
-		"build": "cd client && npm run build",
+		"build": "npm i && cd client && npm i && npm run build",
 		"clean": "rm -rf build && mkdir build",
 		"dev": "cross-env NODE_ENV=development nodemon --ignore ./client/ --exec 'npx babel-node index.js'",
 		"start2": "npm-run-all -p -r dev start:client",

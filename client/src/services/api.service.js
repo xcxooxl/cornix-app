@@ -1,6 +1,6 @@
 const axios = require("axios");
 const client = axios.create({
-	baseURL: process.env.NODE_ENV === "production" ? "/" : "http://localhost:5000/api/",
+	baseURL: process.env.NODE_ENV === "production" ? "/api/" : "http://localhost:5000/api/",
 });
 
 const getAllSymbols = async () => {
@@ -17,7 +17,7 @@ const getSymbolOHLC = async (symbol, since, interval) => {
 	return response?.data;
 };
 
-module.exports = {
+export default {
 	getAllSymbols,
 	getSymbolOHLC,
 };
